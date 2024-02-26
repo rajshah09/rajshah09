@@ -1,0 +1,26 @@
+import os
+import requests
+from bs4 import BeautifulSoup
+
+file_path ='/home/rextron/websites/LF-Directory/www.locatefamily.com/Street-Lists/India/index-38541.html'
+
+
+
+with open(file_path, 'r', encoding='utf-8') as file: 
+    html_content = file.read()
+    
+soup =BeautifulSoup(html_content, "html.parser")
+
+#res = soup.cdata_list_attributes('telephone')
+
+#res = soup.find(itemprop='telephone').find_next('li')
+
+#res = soup.find(itemprop='telephone')
+for numbers in soup.find_all(itemprop='telephone'):
+    print(numbers.text, end='\n')
+    
+    # print(numbers[1].text, end='\n')
+    # gv_name = soup.body.findAll(text='919015411989')
+    # print(gv_name.text)
+
+#print(soup.text)
